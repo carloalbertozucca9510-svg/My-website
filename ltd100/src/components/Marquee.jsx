@@ -1,6 +1,6 @@
 import './Marquee.css';
 
-const TEXT = 'LTD100 ◆ ONE TEE · ONE HUNDRED PIECES ◆ YOUR NUMBER · YOUR PIECE ◆ DROP 003 — LIVE NOW';
+const TEXT = 'LTD100 ◆ ONE TEE · ONE HUNDRED PIECES ◆ YOUR NUMBER · YOUR PIECE ◆ DROP 001 — COMING SOON';
 
 export default function Marquee() {
   return (
