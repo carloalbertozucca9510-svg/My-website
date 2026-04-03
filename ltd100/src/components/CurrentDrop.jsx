@@ -35,7 +35,7 @@ export default function CurrentDrop() {
 
       <div className="current-drop__header">
         <p className="section-eyebrow">Current Drop</p>
-        <h2 className="section-heading">Drop 003 — Live Now</h2>
+        <h2 className="section-heading">Drop 001 — Coming Soon</h2>
       </div>
 
       <div className="current-drop__body">
