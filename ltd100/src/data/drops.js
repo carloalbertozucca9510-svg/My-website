@@ -7,7 +7,7 @@ function makeNumbers(availableList) {
   return obj;
 }
 
-const available003 = [
+const available001 = [
   3, 5, 8, 11, 14, 17, 19, 22, 25, 27, 31, 33, 36, 38, 41,
   44, 47, 49, 52, 54, 57, 59, 62, 65, 68, 71, 74, 76, 79, 82,
   85, 87, 90, 93, 96, 98,
@@ -28,7 +28,7 @@ export const drops = [
       { id: 'ivory', name: 'Ivory White',  hex: '#f0ede8', stock: 0  },
       { id: 'olive', name: 'Olive Fade',   hex: '#3a3a2a', stock: 55 },
     ],
-    numbers: makeNumbers(available003),
+    numbers: makeNumbers(available001),
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
