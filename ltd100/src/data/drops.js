@@ -15,12 +15,12 @@ const available003 = [
 
 export const drops = [
   {
-    id: 'drop-003',
+    id: 'drop-001',
     number: 3,
-    name: 'Drop 003 — Heavyweight Tee',
+    name: 'Drop 001 — Heavyweight Tee',
     status: 'live',
-    description: '360gsm heavyweight cotton. Oversized fit. Pre-washed for softness. Built to last, not to be replaced.',
-    price: 285,
+    description: '360gsm heavyweight cotton. Relaxed fit. Pre-washed for softness. Built to last, not to be replaced.',
+    price: 450,
     currency: 'AED',
     totalUnits: 100,
     colourways: [
