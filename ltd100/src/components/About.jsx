@@ -10,12 +10,12 @@ const blocks = [
   {
     num: '02',
     title: '100 pieces. That\'s the whole run.',
-    body: 'Not a limited edition with a waitlist. Not "exclusive" with 50,000 units. Exactly 100 tees, across all colourways, per drop. Your number is proof of that.',
+    body: 'Not a limited edition with a waitlist. Not "exclusive" with 50,000 units. 100 tees per drop. Your number is proof of that.',
   },
   {
     num: '03',
     title: 'You don\'t pay for unsold stock.',
-    body: 'Most brands produce more than they sell and build that loss into the price. You subsidise every item that ends up in a clearance bin. We produce exactly what we sell. 100 pieces. Fully accounted for. The price is the price.',
+    body: 'Most brands produce more than they sell and build that loss into the price. We produce exactly what we sell. 100 pieces. Fully accounted for. The price is the price.',
   },
   {
     num: '04',
