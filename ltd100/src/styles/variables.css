@@ -1,0 +1,22 @@
+:root {
+  --color-black:   #080808;
+  --color-white:   #f5f0eb;
+  --color-red:     #e3001b;
+  --color-green:   #2d7a4f;
+  --color-gray:    #1a1a1a;
+  --color-gray-2:  #242424;
+  --color-muted:   rgba(245, 240, 235, 0.4);
+
+  --font-display:  'Bebas Neue', sans-serif;
+  --font-body:     'Barlow', sans-serif;
+
+  --spacing-xs:    8px;
+  --spacing-sm:    16px;
+  --spacing-md:    32px;
+  --spacing-lg:    64px;
+  --spacing-xl:    120px;
+
+  --bp-mobile:  560px;
+  --bp-tablet:  900px;
+  --bp-desktop: 1200px;
+}
