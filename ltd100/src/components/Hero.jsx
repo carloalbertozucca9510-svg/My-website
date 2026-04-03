@@ -85,7 +85,7 @@ export default function Hero() {
       </div>
 
       <div className="hero__content" ref={headlineRef}>
-        <p className="hero__eyebrow">Dubai · Drop 003 — Live Now</p>
+        <p className="hero__eyebrow">Dubai · Drop 001 — Coming Soon</p>
 
         <h1 className="hero__headline">
           <span>One Tee.</span>
@@ -95,7 +95,7 @@ export default function Hero() {
 
         <div className="hero__status">
           <span className="hero__status-text">
-            Drop 003 — {remaining} of 100 remaining
+            Drop 001 — {remaining} of 100 remaining
           </span>
           <div className="hero__progress-track">
             <div
