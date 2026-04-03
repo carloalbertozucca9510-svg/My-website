@@ -37,7 +37,7 @@ export const drops = [
     name: 'Drop 002 — Midweight Tee',
     status: 'vault',
     description: '280gsm midweight cotton. Regular fit. Garment dyed.',
-    price: 265,
+    price: 450,
     currency: 'AED',
     totalUnits: 100,
     colourways: [
