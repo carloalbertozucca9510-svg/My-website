@@ -31,7 +31,7 @@ export default function CurrentDrop() {
   return (
     <section className="current-drop reveal" id="current-drop" ref={ref}>
       {/* Ghost watermark */}
-      <div className="current-drop__watermark" aria-hidden="true">003</div>
+      <div className="current-drop__watermark" aria-hidden="true">001</div>
 
       <div className="current-drop__header">
         <p className="section-eyebrow">Current Drop</p>
