@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { currentDrop } from '../data/drops';
-import TShirtSVG from './TShirtSVG';
+import ProductGallery from './ProductGallery';
 import ColourSwatch from './ColourSwatch';
 import NumberPicker from './NumberPicker';
 import useReveal from '../hooks/useReveal';
@@ -39,26 +39,26 @@ export default function CurrentDrop() {
       </div>
 
       <div className="current-drop__body">
-        {/* Left — product visual */}
+
+        {/* Left — image gallery */}
         <div className="current-drop__visual">
-          <TShirtSVG
-            colour={activeCw?.hex ?? '#1a1a1a'}
-            labelNumber={selectedNumber}
-            size={420}
-          />
-          <div className="current-drop__swatches">
-            <ColourSwatch
-              colourways={drop.colourways}
-              selected={selectedColour}
-              onSelect={setSelectedColour}
-            />
-          </div>
+          <ProductGallery colourway={activeCw} />
         </div>
 
         {/* Right — product details */}
         <div className="current-drop__details">
           <h3 className="current-drop__name">{drop.name}</h3>
           <p className="current-drop__desc">{drop.description}</p>
+
+          {/* Colourway selector */}
+          <div className="current-drop__colourway">
+            <p className="current-drop__label">Colour</p>
+            <ColourSwatch
+              colourways={drop.colourways}
+              selected={selectedColour}
+              onSelect={setSelectedColour}
+            />
+          </div>
 
           {/* Availability */}
           <div className="current-drop__availability">
@@ -119,6 +119,7 @@ export default function CurrentDrop() {
             </p>
           </div>
         </div>
+
       </div>
     </section>
   );

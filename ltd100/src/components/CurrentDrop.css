@@ -56,10 +56,6 @@
   top: 100px;
 }
 
-.current-drop__swatches {
-  margin-top: var(--spacing-md);
-}
-
 .current-drop__details {
   display: flex;
   flex-direction: column;
@@ -107,6 +103,12 @@
   background: var(--color-green);
   border-radius: 2px;
   transition: width 0.6s ease;
+}
+
+.current-drop__colourway {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
 }
 
 .current-drop__label {
@@ -216,7 +218,5 @@
 
   .current-drop__visual {
     position: static;
-    max-width: 360px;
-    margin: 0 auto;
   }
 }
