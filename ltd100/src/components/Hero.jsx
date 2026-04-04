@@ -100,7 +100,7 @@ export default function Hero() {
           <div className="hero__progress-track">
             <div
               className="hero__progress-fill"
-              style={{ width: `${(claimed / 100) * 100}%` }}
+              style={{ width: `${(remaining / 100) * 100}%` }}
             />
           </div>
         </div>

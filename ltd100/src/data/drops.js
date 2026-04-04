@@ -7,16 +7,22 @@ function makeNumbers(availableList) {
   return obj;
 }
 
+// Numbers 1–20 are claimed (20 claimed), 21–100 are available (80 remaining)
 const available001 = [
-  3, 5, 8, 11, 14, 17, 19, 22, 25, 27, 31, 33, 36, 38, 41,
-  44, 47, 49, 52, 54, 57, 59, 62, 65, 68, 71, 74, 76, 79, 82,
-  85, 87, 90, 93, 96, 98,
+  21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+  31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+  41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
+  61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
+  71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+  81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+  91, 92, 93, 94, 95, 96, 97, 98, 99, 100,
 ];
 
 export const drops = [
   {
     id: 'drop-001',
-    number: 3,
+    number: 1,
     name: 'Drop 001 — Heavyweight Tee',
     status: 'live',
     description: '360gsm heavyweight cotton. Relaxed fit. Pre-washed for softness. Built to last, not to be replaced.',
@@ -24,9 +30,9 @@ export const drops = [
     currency: 'AED',
     totalUnits: 100,
     colourways: [
-      { id: 'onyx',  name: 'Onyx Black',  hex: '#1a1a1a', stock: 12 },
-      { id: 'ivory', name: 'Ivory White',  hex: '#f0ede8', stock: 0  },
-      { id: 'olive', name: 'Olive Fade',   hex: '#3a3a2a', stock: 55 },
+      { id: 'onyx',  name: 'Onyx Black',   hex: '#1a1a1a', stock: 25 },
+      { id: 'ivory', name: 'Ivory White',   hex: '#f0ede8', stock: 0  },
+      { id: 'olive', name: 'Midnight Navy', hex: '#1a1f3a', stock: 55 },
     ],
     numbers: makeNumbers(available001),
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
@@ -48,9 +54,9 @@ export const drops = [
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
   },
   {
-    id: 'drop-001',
-    number: 1,
-    name: 'Drop 001 — Original Tee',
+    id: 'drop-000',
+    number: 0,
+    name: 'Drop 000 — Original Tee',
     status: 'soldout',
     description: '320gsm heavyweight cotton. Boxy fit.',
     price: 250,

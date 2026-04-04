@@ -25,7 +25,7 @@ export default function CurrentDrop() {
   const activeCw = drop.colourways.find(c => c.id === selectedColour);
   const claimed = Object.values(drop.numbers).filter(v => !v).length;
   const remaining = drop.totalUnits - claimed;
-  const progressPct = (claimed / drop.totalUnits) * 100;
+  const progressPct = (remaining / drop.totalUnits) * 100;
   const paddedNum = String(selectedNumber).padStart(3, '0');
 
   return (
@@ -112,10 +112,10 @@ export default function CurrentDrop() {
               {drop.currency} {drop.price.toLocaleString()}
             </p>
             <button className="current-drop__cta">
-              Claim #{paddedNum}
+              Coming Soon — #{paddedNum}
             </button>
             <p className="current-drop__note">
-              Your number is assigned at checkout. Low numbers go first.
+              Register your number now. Drop 001 goes live soon — low numbers go first.
             </p>
           </div>
         </div>
