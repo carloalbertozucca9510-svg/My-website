@@ -4,23 +4,23 @@ import './About.css';
 const blocks = [
   {
     num: '01',
-    title: 'We use materials most brands can\'t afford.',
-    body: 'At 10,000 units, premium fabric doesn\'t make financial sense. At 100, it does. Every drop uses the best available material for that design — weight, texture, construction. No shortcuts, because the model doesn\'t need any.',
+    title: 'Materials most maisons can\'t justify.',
+    body: 'At 100 pieces, we can source materials that make no financial sense at scale. Every drop uses the finest available for that design — chosen without compromise, because the model demands nothing less.',
   },
   {
     num: '02',
-    title: '100 pieces. That\'s the whole run.',
-    body: 'Not a limited edition with a waitlist. Not "exclusive" with 50,000 units. 100 tees per drop. Your number is proof of that.',
+    title: 'One hundred. The entire edition.',
+    body: 'Not a limited run of thousands. Not exclusive with exceptions. One hundred pieces, produced once, never repeated. Your number is the proof.',
   },
   {
     num: '03',
-    title: 'You don\'t pay for unsold stock.',
-    body: 'Most brands produce more than they sell and build that loss into the price. We produce exactly what we sell. 100 pieces. Fully accounted for. The price is the price.',
+    title: 'You pay for the object. Nothing else.',
+    body: 'Luxury brands overproduce and price for the unsold. You subsidise every piece that never finds an owner. Vistoria produces exactly what it sells. The price reflects the object.',
   },
   {
     num: '04',
-    title: 'Your number means something.',
-    body: 'Low numbers go first. Once a drop is gone, it\'s gone. Unsold pieces from past drops are still available — with their original number. You\'re not buying a T-shirt. You\'re buying a specific piece, from a specific moment.',
+    title: 'Your number is permanent.',
+    body: 'Reserved early, your number is low. Each piece carries its edition number — engraved before it leaves our hands. You are not acquiring a bag. You are acquiring a specific object from a specific moment.',
   },
 ];
 
@@ -29,10 +29,9 @@ export default function About() {
 
   return (
     <section className="about reveal" id="about" ref={ref}>
-      <div className="about__watermark" aria-hidden="true">100</div>
-
       <div className="about__header">
         <p className="section-eyebrow">Why 100</p>
+        <h2 className="section-heading">The Standard</h2>
       </div>
 
       <div className="about__blocks">

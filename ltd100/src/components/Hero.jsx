@@ -1,19 +1,17 @@
 import { useEffect, useRef } from 'react';
-import LabelSVG from './LabelSVG';
 import { currentDrop } from '../data/drops';
 import './Hero.css';
 
 export default function Hero() {
+  const contentRef = useRef(null);
   const canvasRef = useRef(null);
-  const headlineRef = useRef(null);
 
-  // Grain/noise canvas
+  // Grain canvas
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animId;
-    let frame = 0;
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -30,10 +28,9 @@ export default function Hero() {
         data[i] = noise;
         data[i + 1] = noise;
         data[i + 2] = noise;
-        data[i + 3] = 14; // very low opacity
+        data[i + 3] = 10;
       }
       ctx.putImageData(imageData, 0, 0);
-      frame++;
       animId = requestAnimationFrame(drawGrain);
     }
 
@@ -49,7 +46,7 @@ export default function Hero() {
 
   // Fade-up on load
   useEffect(() => {
-    const el = headlineRef.current;
+    const el = contentRef.current;
     if (!el) return;
     const timer = setTimeout(() => {
       el.classList.add('hero__content--visible');
@@ -67,35 +64,26 @@ export default function Hero() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Lowest available number for hero label
-  const heroNumber = currentDrop
-    ? parseInt(Object.entries(currentDrop.numbers).find(([, v]) => v)?.[0] ?? 1)
-    : 1;
-
   return (
     <section className="hero" id="hero">
       <canvas className="hero__grain" ref={canvasRef} aria-hidden="true" />
 
-      {/* Ghost 100 watermark */}
-      <div className="hero__watermark" aria-hidden="true">100</div>
-
-      {/* Label — large background element */}
-      <div className="hero__label-bg" aria-hidden="true">
-        <LabelSVG number={heroNumber} width={260} />
-      </div>
-
-      <div className="hero__content" ref={headlineRef}>
-        <p className="hero__eyebrow">Dubai · Drop 001 — Coming Soon</p>
+      <div className="hero__content" ref={contentRef}>
+        <p className="hero__eyebrow">Dubai · Drop 001 — Now Open for Reservation</p>
 
         <h1 className="hero__headline">
-          <span>One Tee.</span>
           <span>One Hundred.</span>
-          <span>Your Number.</span>
+          <span className="hero__headline--accent">Yours Alone.</span>
         </h1>
+
+        <p className="hero__subheadline">
+          A structured evening clutch. Limited to 100 pieces.<br />
+          Each one numbered, each one yours.
+        </p>
 
         <div className="hero__status">
           <span className="hero__status-text">
-            Drop 001 — {remaining} of 100 remaining
+            Drop 001 — {remaining} pieces remaining
           </span>
           <div className="hero__progress-track">
             <div
@@ -106,8 +94,51 @@ export default function Hero() {
         </div>
 
         <button className="hero__cta" onClick={scrollToDrop}>
-          See the Drop →
+          Select Your Number →
         </button>
+      </div>
+
+      <div className="hero__visual" aria-hidden="true">
+        <svg
+          className="hero__bag-svg"
+          viewBox="0 0 320 400"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          {/* Bag body */}
+          <rect x="40" y="100" width="240" height="270" rx="4" fill="none" stroke="var(--color-text)" strokeWidth="1.5" />
+          {/* Clasp bar */}
+          <rect x="120" y="94" width="80" height="12" rx="2" fill="none" stroke="var(--color-text)" strokeWidth="1.5" />
+          {/* Clasp detail */}
+          <circle cx="160" cy="100" r="5" fill="none" stroke="var(--color-gold)" strokeWidth="1.5" />
+          {/* Handle left */}
+          <path d="M 100 94 Q 80 50 100 30" fill="none" stroke="var(--color-text)" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Handle right */}
+          <path d="M 220 94 Q 240 50 220 30" fill="none" stroke="var(--color-text)" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Handle connector */}
+          <line x1="100" y1="30" x2="220" y2="30" stroke="var(--color-text)" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Interior seam line */}
+          <line x1="40" y1="160" x2="280" y2="160" stroke="var(--color-border)" strokeWidth="1" />
+          {/* Side stitching left */}
+          <line x1="55" y1="110" x2="55" y2="360" stroke="var(--color-border)" strokeWidth="0.8" strokeDasharray="4 3" />
+          {/* Side stitching right */}
+          <line x1="265" y1="110" x2="265" y2="360" stroke="var(--color-border)" strokeWidth="0.8" strokeDasharray="4 3" />
+          {/* Bottom stitching */}
+          <line x1="55" y1="355" x2="265" y2="355" stroke="var(--color-border)" strokeWidth="0.8" strokeDasharray="4 3" />
+          {/* Edition number */}
+          <text
+            x="160" y="260"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fontFamily="'Cormorant Garamond', serif"
+            fontSize="13"
+            fontWeight="300"
+            fill="var(--color-gold)"
+            letterSpacing="4"
+          >
+            001 / 100
+          </text>
+        </svg>
       </div>
     </section>
   );

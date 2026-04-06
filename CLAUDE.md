@@ -1,10 +1,10 @@
-# CLAUDE.md — LTD100
+# CLAUDE.md — Vistoria
 
 ## Project Overview
-LTD100 is a limited-edition T-shirt e-commerce website based in Dubai.
-Domain: ltd-100.com
+Vistoria is a limited-edition structured evening clutch bag brand based in Dubai.
+Domain: vistoria.com
 Every decision in this codebase should reflect the brand's core proposition:
-100 pieces per drop, each uniquely numbered. Nothing more, nothing less.
+100 pieces per drop, each individually numbered. Each reservation is final. Each piece is engraved before it leaves.
 
 ---
 
@@ -12,7 +12,7 @@ Every decision in this codebase should reflect the brand's core proposition:
 - Framework: React (Vite)
 - Language: JavaScript (JSX) — no TypeScript unless explicitly requested
 - Styling: CSS Modules or plain CSS — no Tailwind, no styled-components
-- Fonts: Google Fonts — Bebas Neue (display), Barlow (body, weight 300 and 600)
+- Fonts: Google Fonts — Cormorant Garamond (display, weight 300 and 500), Jost (body, weight 300 and 400)
 - No UI component libraries — everything is custom built
 - No animation libraries — CSS animations and transitions only
 - State: React useState and useContext only — no Redux, no Zustand
@@ -23,7 +23,6 @@ Every decision in this codebase should reflect the brand's core proposition:
 ltd100/
 ├── public/
 │   └── images/
-│       └── Etichetta_verde_su_maglietta_nera.png
 ├── src/
 │   ├── components/
 │   │   ├── Nav.jsx
@@ -31,67 +30,7 @@ ltd100/
 │   │   ├── CurrentDrop.jsx
 │   │   ├── NumberPicker.jsx
 │   │   ├── ColourSwatch.jsx
-│   │   ├── TShirtSVG.jsx
-│   │   ├── LabelSVG.jsx
-│   │   ├── Vault.jsx
-│   │   ├── VaultCard.jsx
-│   │   ├── About.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Marquee.jsx
-│   │   └── Cursor.jsx
-│   ├── data/
-│   │   └── drops.js
-│   ├── hooks/
-│   │   └── useReveal.js
-│   ├── styles/
-│   │   ├── global.css
-│   │   └── variables.css
-│   ├── App.jsx
-│   └── main.jsx
-├── CLAUDE.md
-├── index.html
-└── package.json
----
-
-## Design Tokens
-Always use these values. Never hardcode colours or fonts inline.
-Define in `variables.css` and reference as CSS custom properties throughout.
-```css
-Here it is:
-markdown# CLAUDE.md — LTD100
-
-## Project Overview
-LTD100 is a limited-edition T-shirt e-commerce website based in Dubai.
-Domain: ltd-100.com
-Every decision in this codebase should reflect the brand's core proposition:
-100 pieces per drop, each uniquely numbered. Nothing more, nothing less.
-
----
-
-## Tech Stack
-- Framework: React (Vite)
-- Language: JavaScript (JSX) — no TypeScript unless explicitly requested
-- Styling: CSS Modules or plain CSS — no Tailwind, no styled-components
-- Fonts: Google Fonts — Bebas Neue (display), Barlow (body, weight 300 and 600)
-- No UI component libraries — everything is custom built
-- No animation libraries — CSS animations and transitions only
-- State: React useState and useContext only — no Redux, no Zustand
-
----
-
-## File Structure
-ltd100/
-├── public/
-│   └── images/
-│       └── Etichetta_verde_su_maglietta_nera.png
-├── src/
-│   ├── components/
-│   │   ├── Nav.jsx
-│   │   ├── Hero.jsx
-│   │   ├── CurrentDrop.jsx
-│   │   ├── NumberPicker.jsx
-│   │   ├── ColourSwatch.jsx
-│   │   ├── TShirtSVG.jsx
+│   │   ├── TShirtSVG.jsx       (repurposed as bag silhouette SVG)
 │   │   ├── LabelSVG.jsx
 │   │   ├── Vault.jsx
 │   │   ├── VaultCard.jsx
@@ -117,17 +56,23 @@ ltd100/
 ## Design Tokens
 Always use these values. Never hardcode colours or fonts inline.
 Define in `variables.css` and reference as CSS custom properties throughout.
-```css
---color-black:   #080808;
---color-white:   #f5f0eb;
---color-red:     #e3001b;
---color-green:   #2d7a4f;
---color-gray:    #1a1a1a;
---color-gray-2:  #242424;
---color-muted:   rgba(245, 240, 235, 0.4);
 
---font-display:  'Bebas Neue', sans-serif;
---font-body:     'Barlow', sans-serif;
+```css
+--color-bg:               #F7F3EE;  /* Warm Ivory — primary background */
+--color-bg-dark:          #1A1612;  /* Parchment Dark — dark sections */
+--color-text:             #1A1612;  /* Warm Black */
+--color-text-secondary:   #8C7B6B;  /* Warm Gray */
+--color-gold:             #C9A96E;  /* Antique Gold — primary accent */
+--color-gold-deep:        #A67C45;  /* Deep Gold — hover states */
+--color-emerald:          #2C5F4A;  /* Deep Emerald — signature colour */
+--color-burgundy:         #6B2737;  /* Burgundy — signature colour */
+--color-border:           #E2D9CF;  /* Warm Sand — dividers and borders */
+--color-number-available: #C9A96E;  /* Gold — available numbers */
+--color-number-reserved:  #E2D9CF;  /* Sand — reserved */
+--color-number-sold:      #5C4F44;  /* Muted — sold */
+
+--font-display:  'Cormorant Garamond', serif;
+--font-body:     'Jost', sans-serif;
 
 --spacing-xs:    8px;
 --spacing-sm:    16px;
@@ -140,71 +85,24 @@ Define in `variables.css` and reference as CSS custom properties throughout.
 
 ## Data Structure
 All drop data lives in `src/data/drops.js`. No hardcoded content in components.
-```js
-// src/data/drops.js
 
+```js
 export const drops = [
-  {
-    id: 'drop-003',
-    number: 3,
-    name: 'Drop 003 — Heavyweight Tee',
-    status: 'live',                      // 'live' | 'vault' | 'soldout'
-    description: '360gsm heavyweight cotton. Oversized fit. Pre-washed for softness. Built to last, not to be replaced.',
-    price: 285,
-    currency: 'AED',
-    totalUnits: 100,
-    colourways: [
-      {
-        id: 'onyx',
-        name: 'Onyx Black',
-        hex: '#1a1a1a',
-        stock: 12,
-      },
-      {
-        id: 'ivory',
-        name: 'Ivory White',
-        hex: '#f0ede8',
-        stock: 0,
-      },
-      {
-        id: 'olive',
-        name: 'Olive Fade',
-        hex: '#3a3a2a',
-        stock: 55,
-      },
-    ],
-    numbers: {
-      1: false, 2: false, 3: true, 4: false, 5: true,
-      // true = available, false = claimed
-      // all 100 entries must be present
-    },
-    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-  },
-  {
-    id: 'drop-002',
-    number: 2,
-    name: 'Drop 002 — Midweight Tee',
-    status: 'vault',
-    description: '280gsm midweight cotton. Regular fit. Garment dyed.',
-    price: 265,
-    currency: 'AED',
-    totalUnits: 100,
-    colourways: [],
-    numbers: {},
-    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-  },
   {
     id: 'drop-001',
     number: 1,
-    name: 'Drop 001 — Original Tee',
-    status: 'soldout',
-    description: '320gsm heavyweight cotton. Boxy fit.',
-    price: 250,
+    name: 'Vistoria Evening Clutch — Drop 001',
+    status: 'live',
+    description: '...',
+    price: 7500,
     currency: 'AED',
     totalUnits: 100,
-    colourways: [],
-    numbers: {},
-    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+    material: 'To be confirmed',
+    dimensions: '24–26 cm × 13–15 cm × 4–5 cm',
+    reservationType: 'engraved',
+    colourways: [...],
+    numbers: {...},
+    // NO sizes array — bags have no sizes
   },
 ];
 
@@ -216,66 +114,47 @@ export const vaultDrops  = drops.filter(d => d.status === 'vault' || d.status ==
 
 ## Key Components — Rules and Behaviour
 
-### TShirtSVG.jsx
-- Accepts props: `colour` (hex string), `labelNumber` (integer)
-- Tee body fill changes based on `colour` prop
-- Label is always rendered via `LabelSVG` as a child, always at bottom-right hem position
-- Never hardcode a colour inside this component
-
-### LabelSVG.jsx
-- Accepts props: `number` (integer)
-- Always renders: number at top, thin horizontal rule, `/100` below
-- Background is always `#2d7a4f` (var --color-green) — never changes
-- White text only — never any other colour
-- Reference image: `public/images/Etichetta_verde_su_maglietta_nera.png`
-- This is the single most important visual element on the site — treat it with care
-- No brand name or logo on the label — numbers only
-
-### NumberPicker.jsx
-- Accepts props: `numbers` (object, keys 1–100, values true/false), `onSelect` (callback)
-- Renders a 10×10 grid
-- Available (true): green background (`--color-green`), white number, clickable
-- Claimed (false): dark gray background, muted number, not clickable
-- Selected: bright green border, slightly elevated
-- Selection updates parent state via `onSelect` callback
-- On mobile: grid scales to full screen width, minimum tap target 36px per cell
+### NumberPicker.jsx — Constellation Interface
+- Replaces the 10×10 grid with scattered dots on a dark canvas
+- 100 dots at fixed deterministic positions (seeded PRNG — same layout on every render)
+- Available dot: gold fill (#C9A96E), slow pulse animation (3s ease-in-out infinite)
+- Reserved dot: sand (#E2D9CF), no pulse, no interaction
+- Sold dot: very dark (#3A3028), barely visible, no interaction
+- Selected: thin gold ring around dot
+- Full-width dark section (--color-bg-dark), minimum 520px height
+- Legend below: Available · Reserved · Yours
 
 ### CurrentDrop.jsx
-- Derives `nextAvailableNumber` automatically — lowest number where value is true
-- Selected number state lives here, passed down to NumberPicker and CTA
-- CTA text: `Claim #0${selectedNumber}` — always zero-padded to 3 digits
-- Progress bar width: `(claimedCount / 100) * 100` percent, filled in `--color-green`
+- NO size selector — bags have no sizes
+- Derives nextAvailableNumber automatically
+- Constellation NumberPicker rendered full-width below the two-column product body
+- CTA text: `Reserve Piece #0XX` — thin gold border, no fill. Hover: gold background
+- Never use: Buy, Checkout, Add to Cart
 
 ### Vault.jsx + VaultCard.jsx
-- Loops over `vaultDrops` from drops.js
-- Sold-out cards: greyed out, no interaction, `Sold Out` badge overlaid
-- Available vault cards: show up to 6 available number chips (`#004`, `#017` etc.)
-- If more than 6 numbers remain: show `+N more` chip
+- Section heading: "The Archive"
+- Subtitle: "Past editions. Still numbered. Still rare."
+- VaultCard uses inline BagPlaceholder SVG component (not TShirtSVG)
+- Sold out badge text: "Edition Closed"
+
+### TShirtSVG.jsx
+- Repurposed as bag silhouette SVG placeholder
+- Accepts: colour (hex), labelNumber (integer), size (px)
 
 ### Cursor.jsx
-- Two elements: small dot (10px, `--color-green`) and lagging ring (32px, border only)
-- Ring follows mouse with lerp delay (factor 0.1) via requestAnimationFrame
-- Hide default cursor on body: `cursor: none`
-- Disable on touch devices — detect via `window.matchMedia('(pointer: coarse)')`
-
-### Marquee.jsx
-- Pure CSS animation — no JS scrolling
-- Text: `LTD100 ◆ ONE TEE · ONE HUNDRED PIECES ◆ YOUR NUMBER · YOUR PIECE ◆ DROP 003 — LIVE NOW`
-- Background: `--color-red`
-- Content block duplicated for seamless loop
+- Dot and ring in --color-gold
+- Disable on touch devices
 
 ---
 
 ## Scroll Reveal
-Single reusable hook for all sections.
 ```js
 // src/hooks/useReveal.js
-// Returns a ref — attach to any element
 // Uses IntersectionObserver at threshold 0.12
 // Adds class 'visible' when element enters viewport
-// Initial state: opacity 0, translateY 32px
-// Visible state: opacity 1, translateY 0
-// Transition: 0.8s ease
+// Initial: opacity 0, translateY 20px
+// Visible: opacity 1, translateY 0
+// Transition: 1.2s ease
 // Once visible, stays visible — observer disconnects
 ```
 
@@ -288,52 +167,40 @@ Single reusable hook for all sections.
 --bp-desktop: 1200px;
 ```
 
-- Nav: hamburger below 900px, full-screen overlay menu
-- Hero: single column below 900px, label SVG moves to background at low opacity
-- Current Drop: stacked below 900px — visual above, details below
-- Vault grid: 3 columns desktop → 2 columns tablet → 1 column mobile
-- Number picker: full width on mobile, minimum 36px per cell
-- About: two-column collapses to single column below 560px
-- Footer: stacks to single column below 560px
+---
+
+## Language Rules
+- Never use: Buy, Add to Cart, Shop, Sale, Discount, Stock, Checkout, Inventory
+- Always use: Reserve, Acquire, Edition, Piece, Object, Number, Yours
+- Tone: calm, confident, unhurried
+- No exclamation marks anywhere on the site
 
 ---
 
-## Naming Conventions
-- Components: PascalCase (`TShirtSVG`, `NumberPicker`)
-- CSS classes: kebab-case (`number-picker`, `drop-card`)
-- JS variables: camelCase (`currentDrop`, `selectedNumber`)
-- Data keys: camelCase (`colourways`, `totalUnits`)
-- Files: match component name exactly (`NumberPicker.jsx`, `NumberPicker.css`)
+## Animation Rules
+- All fade-ups: 1.2s ease, translateY maximum 20px
+- Hover states: 0.4s ease transition
+- Constellation pulse: 3s ease-in-out infinite
+- Marquee: 35s per full loop
+- No bounce, no spring, no fast snappy transitions
 
 ---
 
 ## What NOT To Do
-- Do not use any CSS framework — no Tailwind, no Bootstrap
-- Do not use any animation library — no Framer Motion, no GSAP
-- Do not use any component library — no shadcn, no MUI
-- Do not hardcode brand colours, fonts or spacing — always use CSS variables
-- Do not put drop data inside components — always import from drops.js
-- Do not add features not in this file without asking first
+- Do not use any CSS framework
+- Do not use any animation library or component library
+- Do not hardcode brand colours, fonts or spacing
+- Do not put drop data inside components
+- Do not add a size selector anywhere — bags have no sizes
 - Do not use TypeScript
-- Do not add a backend or CMS — static frontend only for now
-- Do not change the label colour — always `#2d7a4f`
-- Do not put any brand name or logo on the label SVG — numbers only
-- Do not use placeholder images or external image URLs — all visuals are SVG
-
----
-
-## Reference Assets
-- `public/images/Etichetta_verde_su_maglietta_nera.png`
-  This is the visual truth for LabelSVG and all T-shirt illustrations.
-  Match the proportions, typography layout and green colour exactly.
+- Do not add a backend or CMS — static frontend only
 
 ---
 
 ## Brand Rules
-- Brand name is always written `LTD100` — never `Ltd100`, `ltd100` or `LTD-100`
-- Hyphen appears in the domain only: `ltd-100.com`
-- Tagline: One Tee. One Hundred. Your Number.
-- Instagram handle: @ltd100
-- Currency: always AED — never USD or any other currency
+- Brand name is always written `Vistoria`
+- Tagline: One Hundred. Yours Alone.
+- Instagram handle: @vistoria
+- Currency: always AED
 - All piece numbers are zero-padded to 3 digits: #001, #067, #100
-- The label on the garment shows numbers only — no brand name, no logo
+- Each reservation is described as final and engraved

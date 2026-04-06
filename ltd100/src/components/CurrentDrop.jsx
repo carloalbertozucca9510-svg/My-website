@@ -18,7 +18,6 @@ export default function CurrentDrop() {
     drop?.colourways.find(c => c.stock > 0)?.id ?? drop?.colourways[0]?.id
   );
   const [selectedNumber, setSelectedNumber] = useState(firstAvailable);
-  const [selectedSize, setSelectedSize] = useState('M');
 
   if (!drop) return null;
 
@@ -30,12 +29,10 @@ export default function CurrentDrop() {
 
   return (
     <section className="current-drop reveal" id="current-drop" ref={ref}>
-      {/* Ghost watermark */}
-      <div className="current-drop__watermark" aria-hidden="true">001</div>
 
       <div className="current-drop__header">
-        <p className="section-eyebrow">Current Drop</p>
-        <h2 className="section-heading">Drop 001 — Coming Soon</h2>
+        <p className="section-eyebrow">The Piece</p>
+        <h2 className="section-heading">The Piece — Drop 001</h2>
       </div>
 
       <div className="current-drop__body">
@@ -48,6 +45,15 @@ export default function CurrentDrop() {
         {/* Right — product details */}
         <div className="current-drop__details">
           <h3 className="current-drop__name">{drop.name}</h3>
+
+          <p className="current-drop__material">
+            {drop.material}
+          </p>
+
+          <p className="current-drop__dimensions">
+            {drop.dimensions}
+          </p>
+
           <p className="current-drop__desc">{drop.description}</p>
 
           {/* Colourway selector */}
@@ -73,37 +79,15 @@ export default function CurrentDrop() {
             </div>
           </div>
 
-          {/* Size selector */}
-          <div className="current-drop__sizes">
-            <p className="current-drop__label">Size</p>
-            <div className="current-drop__size-grid">
-              {drop.sizes.map(size => (
-                <button
-                  key={size}
-                  className={`current-drop__size-btn${selectedSize === size ? ' current-drop__size-btn--selected' : ''}`}
-                  onClick={() => setSelectedSize(size)}
-                  aria-pressed={selectedSize === size}
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Number selection — key moment */}
+          {/* Selected number display */}
           <div className="current-drop__number-section">
             <p className="current-drop__label">Your number</p>
             <div className="current-drop__selected-number" aria-live="polite">
               #{paddedNum}
             </div>
             <p className="current-drop__number-sub">
-              Select your piece from the grid below
+              Select your piece from the constellation below
             </p>
-            <NumberPicker
-              numbers={drop.numbers}
-              onSelect={setSelectedNumber}
-              selectedNumber={selectedNumber}
-            />
           </div>
 
           {/* Price + CTA */}
@@ -112,15 +96,31 @@ export default function CurrentDrop() {
               {drop.currency} {drop.price.toLocaleString()}
             </p>
             <button className="current-drop__cta">
-              Coming Soon — #{paddedNum}
+              Reserve Piece #{paddedNum}
             </button>
             <p className="current-drop__note">
-              Register your number now. Drop 001 goes live soon — low numbers go first.
+              Your number will be engraved into your piece. Each reservation is final.
             </p>
           </div>
         </div>
 
       </div>
+
+      {/* Full-width constellation */}
+      <div className="current-drop__constellation-wrap">
+        <div className="current-drop__constellation-header">
+          <h3 className="current-drop__constellation-title">Choose Your Number</h3>
+          <p className="current-drop__constellation-sub">
+            Each number is unique. Once reserved, it is yours permanently.
+          </p>
+        </div>
+        <NumberPicker
+          numbers={drop.numbers}
+          onSelect={setSelectedNumber}
+          selectedNumber={selectedNumber}
+        />
+      </div>
+
     </section>
   );
 }

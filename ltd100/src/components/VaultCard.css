@@ -1,20 +1,20 @@
 .vault-card {
   position: relative;
-  background: var(--color-gray);
-  border: 1px solid rgba(245, 240, 235, 0.06);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.4s ease, transform 0.4s ease;
 }
 
 .vault-card:not(.vault-card--soldout):hover {
-  border-color: rgba(245, 240, 235, 0.18);
+  border-color: var(--color-gold);
   transform: translateY(-2px);
 }
 
 .vault-card--soldout {
-  opacity: 0.45;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -22,24 +22,34 @@
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-sm);
-  background: var(--color-gray-2);
-  color: var(--color-muted);
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.65rem;
+  font-weight: 300;
+  font-size: 0.62rem;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border: 1px solid rgba(245, 240, 235, 0.1);
+  padding: 4px 10px;
+  border: 1px solid var(--color-border);
   z-index: 2;
 }
 
 .vault-card__visual {
-  background: var(--color-gray-2);
+  background: var(--color-bg-dark);
+}
+
+.vault-card__bag-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-md);
+  background: var(--color-bg-dark) !important;
+}
+
+.vault-card__bag-svg {
+  width: 80px;
+  height: auto;
+  opacity: 0.7;
 }
 
 .vault-card__info {
@@ -51,24 +61,27 @@
 }
 
 .vault-card__eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-weight: 300;
   text-transform: uppercase;
-  color: var(--color-muted);
 }
 
 .vault-card__name {
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  letter-spacing: 0.04em;
-  color: var(--color-white);
-  line-height: 1.1;
+  font-weight: 300;
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+  line-height: 1.2;
 }
 
 .vault-card__desc {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  line-height: 1.6;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
   font-weight: 300;
   margin-bottom: var(--spacing-xs);
 }
@@ -82,24 +95,19 @@
 
 .vault-card__chip {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.68rem;
+  font-weight: 300;
+  font-size: 0.65rem;
   letter-spacing: 0.08em;
-  color: var(--color-green);
-  border: 1px solid rgba(45, 122, 79, 0.4);
+  color: var(--color-gold-deep);
+  border: 1px solid rgba(201, 169, 110, 0.3);
   padding: 3px 8px;
-  background: rgba(45, 122, 79, 0.1);
-  transition: background 0.15s ease;
-}
-
-.vault-card__chip:hover {
-  background: rgba(45, 122, 79, 0.25);
+  background: rgba(201, 169, 110, 0.06);
 }
 
 .vault-card__chip--more {
-  color: var(--color-muted);
-  border-color: rgba(245, 240, 235, 0.15);
-  background: rgba(245, 240, 235, 0.04);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+  background: none;
 }
 
 .vault-card__footer {
@@ -108,30 +116,30 @@
   justify-content: space-between;
   margin-top: auto;
   padding-top: var(--spacing-sm);
-  border-top: 1px solid rgba(245, 240, 235, 0.06);
+  border-top: 1px solid var(--color-border);
 }
 
 .vault-card__price {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  letter-spacing: 0.04em;
-  color: var(--color-white);
+  font-weight: 300;
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
 }
 
 .vault-card__cta {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.7rem;
+  font-weight: 300;
+  font-size: 0.68rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-white);
-  border: 1px solid rgba(245, 240, 235, 0.3);
-  padding: 9px 16px;
+  color: var(--color-text);
+  border: 1px solid var(--color-gold);
+  padding: 8px 14px;
   background: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 .vault-card__cta:hover {
-  background: var(--color-white);
-  color: var(--color-black);
+  background: var(--color-gold);
+  color: var(--color-bg);
 }

@@ -8,12 +8,10 @@ export default function Vault() {
 
   return (
     <section className="vault reveal" id="vault" ref={ref}>
-      <div className="vault__watermark" aria-hidden="true">100</div>
-
       <div className="vault__header">
-        <p className="section-eyebrow">Archive</p>
-        <h2 className="section-heading">The Vault</h2>
-        <p className="vault__subtitle">Past drops. Still numbered. Still real.</p>
+        <p className="section-eyebrow">The Archive</p>
+        <h2 className="section-heading">The Archive</h2>
+        <p className="vault__subtitle">Past editions. Still numbered. Still rare.</p>
       </div>
 
       <div className="vault__grid">

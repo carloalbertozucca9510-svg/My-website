@@ -25,14 +25,14 @@ export default function Nav() {
   return (
     <>
       <nav className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
-        <button className="nav__logo" onClick={() => scrollTo('hero')} aria-label="LTD100 home">
-          LTD100
+        <button className="nav__logo" onClick={() => scrollTo('hero')} aria-label="Vistoria home">
+          VISTORIA
         </button>
 
         <div className="nav__links">
-          <button onClick={() => scrollTo('current-drop')}>Drops</button>
-          <button onClick={() => scrollTo('about')}>About</button>
-          <a href="mailto:hello@ltd-100.com">Contact</a>
+          <button onClick={() => scrollTo('current-drop')}>Collection</button>
+          <button onClick={() => scrollTo('about')}>Story</button>
+          <button onClick={() => scrollTo('current-drop')}>Reserve</button>
         </div>
 
         <button
@@ -49,14 +49,14 @@ export default function Nav() {
 
       <div className={`nav__overlay${open ? ' nav__overlay--open' : ''}`} aria-hidden={!open}>
         <div className="nav__overlay-links">
-          <button onClick={() => scrollTo('current-drop')}>Drops</button>
-          <button onClick={() => scrollTo('vault')}>The Vault</button>
-          <button onClick={() => scrollTo('about')}>About</button>
-          <a href="mailto:hello@ltd-100.com">Contact</a>
+          <button onClick={() => scrollTo('current-drop')}>Collection</button>
+          <button onClick={() => scrollTo('vault')}>The Archive</button>
+          <button onClick={() => scrollTo('about')}>Story</button>
+          <button onClick={() => scrollTo('current-drop')}>Reserve</button>
         </div>
         <div className="nav__overlay-footer">
-          <span>@ltd100</span>
-          <span>ltd-100.com</span>
+          <span>@vistoria</span>
+          <span>vistoria.com</span>
         </div>
       </div>
     </>
