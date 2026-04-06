@@ -12,13 +12,13 @@ export default function LabelSVG({ number, width = 80, className = '' }) {
       aria-label={`Label: piece ${number} of 100`}
     >
       {/* Background */}
-      <rect width="80" height="144" fill="#2d7a4f" />
+      <rect width="80" height="144" fill="#2C5F4A" />
 
-      {/* Inner stitch border */}
+      {/* Inner border */}
       <rect
         x="4" y="4" width="72" height="136"
         fill="none"
-        stroke="rgba(255,255,255,0.18)"
+        stroke="rgba(201,169,110,0.25)"
         strokeWidth="1"
         strokeDasharray="3 2"
       />
@@ -26,13 +26,13 @@ export default function LabelSVG({ number, width = 80, className = '' }) {
       {/* Piece number */}
       <text
         x="40"
-        y="72"
+        y="68"
         textAnchor="middle"
         dominantBaseline="middle"
-        fontFamily="'Bebas Neue', sans-serif"
-        fontSize="52"
-        fontWeight="400"
-        fill="#f5f0eb"
+        fontFamily="'Cormorant Garamond', serif"
+        fontSize="46"
+        fontWeight="300"
+        fill="#F7F3EE"
         letterSpacing="2"
       >
         {padded}
@@ -40,8 +40,8 @@ export default function LabelSVG({ number, width = 80, className = '' }) {
 
       {/* Horizontal rule */}
       <line
-        x1="12" y1="92" x2="68" y2="92"
-        stroke="rgba(245,240,235,0.5)"
+        x1="14" y1="92" x2="66" y2="92"
+        stroke="rgba(201,169,110,0.4)"
         strokeWidth="0.8"
       />
 
@@ -51,10 +51,10 @@ export default function LabelSVG({ number, width = 80, className = '' }) {
         y="118"
         textAnchor="middle"
         dominantBaseline="middle"
-        fontFamily="'Bebas Neue', sans-serif"
-        fontSize="22"
-        fontWeight="400"
-        fill="rgba(245,240,235,0.75)"
+        fontFamily="'Cormorant Garamond', serif"
+        fontSize="18"
+        fontWeight="300"
+        fill="rgba(247,243,238,0.65)"
         letterSpacing="3"
       >
         /100

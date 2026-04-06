@@ -9,23 +9,23 @@
   align-items: center;
   gap: 8px;
   padding: 8px 14px;
-  border: 1px solid rgba(245, 240, 235, 0.15);
+  border: 1px solid var(--color-border);
   background: none;
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 0.78rem;
   letter-spacing: 0.06em;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.4s ease;
   white-space: nowrap;
 }
 
 .colour-swatch__item:not(:disabled):hover {
-  border-color: rgba(245, 240, 235, 0.5);
+  border-color: var(--color-gold);
 }
 
 .colour-swatch__item--selected {
-  border-color: var(--color-green) !important;
+  border-color: var(--color-gold) !important;
 }
 
 .colour-swatch__item--soldout {
@@ -37,18 +37,14 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
-}
-
-.colour-swatch__name {
-  /* visible */
 }
 
 .colour-swatch__sold,
 .colour-swatch__stock {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.6;
+  color: var(--color-text-secondary);
+  font-style: italic;
 }

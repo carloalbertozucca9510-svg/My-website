@@ -13,26 +13,25 @@
 
 .product-gallery__toggle-btn {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-  border: 1px solid rgba(245, 240, 235, 0.1);
-  padding: 5px 14px;
+  font-weight: 300;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  padding: 6px 16px;
   background: none;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: color 0.4s ease, border-color 0.4s ease, background 0.4s ease;
 }
 
 .product-gallery__toggle-btn--active {
-  color: var(--color-white);
-  border-color: rgba(245, 240, 235, 0.35);
-  background: rgba(245, 240, 235, 0.05);
+  color: var(--color-text);
+  border-color: var(--color-gold);
+  background: rgba(201, 169, 110, 0.06);
 }
 
 .product-gallery__toggle-btn:hover:not(.product-gallery__toggle-btn--active) {
-  color: rgba(245, 240, 235, 0.7);
-  border-color: rgba(245, 240, 235, 0.2);
+  color: var(--color-text);
+  border-color: rgba(201, 169, 110, 0.4);
 }
 
 /* --- Main image --- */
@@ -63,17 +62,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--color-bg-dark) !important;
 }
 
 .product-gallery__placeholder-label {
   font-family: var(--font-display);
-  letter-spacing: 0.12em;
-  font-size: clamp(18px, 2.2vw, 32px);
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  font-size: clamp(14px, 1.8vw, 22px);
+  color: var(--color-gold) !important;
 }
 
 .product-gallery__placeholder-label--sm {
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
 }
 
 /* --- Thumbnail strip --- */
@@ -87,19 +89,19 @@
 .product-gallery__thumb {
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-border);
   padding: 0;
   background: none;
   display: block;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.4s ease;
 }
 
 .product-gallery__thumb--active {
-  border-color: var(--color-white);
+  border-color: var(--color-gold);
 }
 
 .product-gallery__thumb:hover:not(.product-gallery__thumb--active) {
-  border-color: rgba(245, 240, 235, 0.3);
+  border-color: rgba(201, 169, 110, 0.4);
 }
 
 .product-gallery__thumb-img {
