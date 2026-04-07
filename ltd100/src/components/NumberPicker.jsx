@@ -1,43 +1,33 @@
 import './NumberPicker.css';
 
-// Seeded PRNG — deterministic positions, identical on every render
-function seededRng(seed) {
-  let s = seed >>> 0;
-  if (s === 0) s = 1;
-  return function () {
-    s ^= s << 13;
-    s ^= s >> 17;
-    s ^= s << 5;
-    return (s >>> 0) / 4294967295;
-  };
-}
-
-// Generate fixed positions (percentage) for 100 dots
-// Uses a grid-with-jitter approach to avoid clustering
+// Concentric ellipse constellation — three orbits, evenly distributed.
+// Positions are fixed percentages of the container (width × height).
+// The canvas is full-width and 520px tall, so equal % radii produce
+// a natural ellipse because the container is wider than it is tall.
 function generatePositions() {
-  const rng = seededRng(2025);
   const positions = [];
-  // 10x10 grid, each cell ~9% wide, with margin
-  const cols = 10;
-  const rows = 10;
-  const marginX = 4;
-  const marginY = 6;
-  const cellW = (100 - marginX * 2) / cols;
-  const cellH = (100 - marginY * 2) / rows;
+  const cx = 50; // centre x %
+  const cy = 50; // centre y %
 
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      const baseX = marginX + col * cellW + cellW * 0.1;
-      const baseY = marginY + row * cellH + cellH * 0.1;
-      const jitterX = rng() * cellW * 0.8;
-      const jitterY = rng() * cellH * 0.8;
+  // [dotCount, radiusX%, radiusY%, angleOffset]
+  // Offset staggers each ring so no dots align vertically across rings.
+  const orbits = [
+    { count: 20, rx: 10, ry: 14, offset: 0 },
+    { count: 35, rx: 26, ry: 32, offset: Math.PI / 35 },
+    { count: 45, rx: 41, ry: 40, offset: Math.PI / 90 },
+  ];
+
+  for (const orbit of orbits) {
+    for (let i = 0; i < orbit.count; i++) {
+      const angle = orbit.offset + (i / orbit.count) * 2 * Math.PI;
       positions.push({
-        x: baseX + jitterX,
-        y: baseY + jitterY,
+        x: cx + orbit.rx * Math.cos(angle),
+        y: cy + orbit.ry * Math.sin(angle),
       });
     }
   }
-  return positions;
+
+  return positions; // exactly 100 positions
 }
 
 const DOT_POSITIONS = generatePositions();

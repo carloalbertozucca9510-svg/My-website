@@ -3,26 +3,58 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   overflow: hidden;
   padding: var(--spacing-xl) var(--spacing-md);
   padding-top: 120px;
-  background: var(--color-bg);
-  gap: var(--spacing-lg);
+  background: var(--color-bg-dark);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* When a real campaign image is set, darken it slightly for text legibility */
+.hero--has-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 22, 18, 0.45);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Placeholder — full-bleed dark background with centred label */
+.hero__bg-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #1A1612 0%, #2a2118 60%, #1A1612 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.hero__bg-label {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  color: var(--color-gold);
+  opacity: 0.35;
+  user-select: none;
+  pointer-events: none;
 }
 
 .hero__grain {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .hero__content {
   position: relative;
   z-index: 2;
   max-width: 560px;
-  flex: 0 0 auto;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.2s ease, transform 1.2s ease;
@@ -48,7 +80,7 @@
   font-size: clamp(56px, 7vw, 110px);
   line-height: 1.0;
   letter-spacing: 0.02em;
-  color: var(--color-text);
+  color: var(--color-bg);
   display: flex;
   flex-direction: column;
   margin-bottom: var(--spacing-sm);
@@ -63,7 +95,7 @@
   font-weight: 300;
   font-size: 0.95rem;
   line-height: 1.8;
-  color: var(--color-text-secondary);
+  color: rgba(247, 243, 238, 0.65);
   margin-bottom: var(--spacing-md);
 }
 
@@ -83,7 +115,7 @@
 .hero__progress-track {
   width: 200px;
   height: 1px;
-  background: var(--color-border);
+  background: rgba(226, 217, 207, 0.25);
   overflow: hidden;
 }
 
@@ -99,11 +131,11 @@
   font-weight: 300;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
-  color: var(--color-text);
+  color: var(--color-bg);
   background: none;
   border: none;
   padding: 0;
-  border-bottom: 1px solid var(--color-text);
+  border-bottom: 1px solid rgba(247, 243, 238, 0.5);
   padding-bottom: 2px;
   transition: color 0.4s ease, border-color 0.4s ease;
 }
@@ -113,48 +145,11 @@
   border-color: var(--color-gold);
 }
 
-/* Editorial bag visual */
-.hero__visual {
-  position: relative;
-  z-index: 1;
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero__bag-svg {
-  width: clamp(200px, 30vw, 380px);
-  height: auto;
-  opacity: 0.85;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding-bottom: var(--spacing-lg);
-  }
-
-  .hero__visual {
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.12;
-    z-index: 0;
-  }
-
-  .hero__bag-svg {
-    width: 220px;
-  }
-}
-
 @media (max-width: 560px) {
   .hero {
     padding: var(--spacing-xl) var(--spacing-sm);
     padding-top: 100px;
     padding-bottom: var(--spacing-lg);
+    align-items: flex-end;
   }
 }
