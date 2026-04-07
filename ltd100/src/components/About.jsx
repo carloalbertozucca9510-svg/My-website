@@ -14,13 +14,13 @@ const blocks = [
   },
   {
     num: '03',
-    title: 'You pay for the object. Nothing else.',
+    title: 'Real Class. Nothing else.',
     body: 'Luxury brands overproduce and price for the unsold. You subsidise every piece that never finds an owner. Vistoria produces exactly what it sells. The price reflects the object.',
   },
   {
     num: '04',
     title: 'Your number is permanent.',
-    body: 'Reserved early, your number is low. Each piece carries its edition number — engraved before it leaves our hands. You are not acquiring a bag. You are acquiring a specific object from a specific moment.',
+    body: 'Each piece carries its edition number — engraved before it leaves our hands. You are not acquiring a bag. You are acquiring a timeless piece.',
   },
 ];
 
@@ -30,7 +30,7 @@ export default function About() {
   return (
     <section className="about reveal" id="about" ref={ref}>
       <div className="about__header">
-        <p className="section-eyebrow">Why 100</p>
+        <p className="section-eyebrow">Vistoria</p>
         <h2 className="section-heading">The Standard</h2>
       </div>
 

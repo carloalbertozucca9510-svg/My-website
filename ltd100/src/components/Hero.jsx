@@ -59,13 +59,27 @@ export default function Hero() {
     : 0;
   const remaining = currentDrop ? currentDrop.totalUnits - claimed : 0;
 
+  // To swap in a real campaign image, set heroImage in drops.js — no other change needed.
+  const heroImage = currentDrop?.heroImage ?? null;
+
   const scrollToDrop = () => {
     const el = document.getElementById('current-drop');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="hero" id="hero">
+    <section
+      className={`hero${heroImage ? ' hero--has-image' : ''}`}
+      id="hero"
+      style={heroImage ? { backgroundImage: `url(${heroImage})` } : undefined}
+    >
+      {/* Full-bleed background placeholder — replaced by heroImage when set */}
+      {!heroImage && (
+        <div className="hero__bg-placeholder" aria-hidden="true">
+          <span className="hero__bg-label">CAMPAIGN IMAGE</span>
+        </div>
+      )}
+
       <canvas className="hero__grain" ref={canvasRef} aria-hidden="true" />
 
       <div className="hero__content" ref={contentRef}>
@@ -96,49 +110,6 @@ export default function Hero() {
         <button className="hero__cta" onClick={scrollToDrop}>
           Select Your Number →
         </button>
-      </div>
-
-      <div className="hero__visual" aria-hidden="true">
-        <svg
-          className="hero__bag-svg"
-          viewBox="0 0 320 400"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          {/* Bag body */}
-          <rect x="40" y="100" width="240" height="270" rx="4" fill="none" stroke="var(--color-text)" strokeWidth="1.5" />
-          {/* Clasp bar */}
-          <rect x="120" y="94" width="80" height="12" rx="2" fill="none" stroke="var(--color-text)" strokeWidth="1.5" />
-          {/* Clasp detail */}
-          <circle cx="160" cy="100" r="5" fill="none" stroke="var(--color-gold)" strokeWidth="1.5" />
-          {/* Handle left */}
-          <path d="M 100 94 Q 80 50 100 30" fill="none" stroke="var(--color-text)" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Handle right */}
-          <path d="M 220 94 Q 240 50 220 30" fill="none" stroke="var(--color-text)" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Handle connector */}
-          <line x1="100" y1="30" x2="220" y2="30" stroke="var(--color-text)" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Interior seam line */}
-          <line x1="40" y1="160" x2="280" y2="160" stroke="var(--color-border)" strokeWidth="1" />
-          {/* Side stitching left */}
-          <line x1="55" y1="110" x2="55" y2="360" stroke="var(--color-border)" strokeWidth="0.8" strokeDasharray="4 3" />
-          {/* Side stitching right */}
-          <line x1="265" y1="110" x2="265" y2="360" stroke="var(--color-border)" strokeWidth="0.8" strokeDasharray="4 3" />
-          {/* Bottom stitching */}
-          <line x1="55" y1="355" x2="265" y2="355" stroke="var(--color-border)" strokeWidth="0.8" strokeDasharray="4 3" />
-          {/* Edition number */}
-          <text
-            x="160" y="260"
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontFamily="'Cormorant Garamond', serif"
-            fontSize="13"
-            fontWeight="300"
-            fill="var(--color-gold)"
-            letterSpacing="4"
-          >
-            001 / 100
-          </text>
-        </svg>
       </div>
     </section>
   );

@@ -32,6 +32,7 @@ export const drops = [
     material: 'To be confirmed',
     dimensions: '24–26 cm × 13–15 cm × 4–5 cm',
     reservationType: 'engraved',
+    heroImage: null,  // Set to image path to replace campaign placeholder, e.g. '/images/drop-001-campaign.jpg'
     colourways: [
       {
         id: 'onyx',
