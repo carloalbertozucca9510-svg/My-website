@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import './ProductGallery.css';
 
 function isLightColor(hex) {
@@ -11,21 +11,6 @@ function isLightColor(hex) {
 export default function ProductGallery({ colourway }) {
   const [selectedId, setSelectedId] = useState('front');
   const [fading, setFading] = useState(false);
-  const prevColourwayId = useRef(colourway?.id);
-
-  // Reset to front with fade when colourway changes
-  useEffect(() => {
-    const prev = prevColourwayId.current;
-    prevColourwayId.current = colourway?.id;
-    if (prev === colourway?.id) return;
-
-    setFading(true);
-    const t = setTimeout(() => {
-      setSelectedId('front');
-      setFading(false);
-    }, 150);
-    return () => clearTimeout(t);
-  }, [colourway?.id]);
 
   const handleSelect = (imageId) => {
     if (imageId === selectedId) return;

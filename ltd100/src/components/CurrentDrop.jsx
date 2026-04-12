@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { currentDrop } from '../data/drops';
 import ProductGallery from './ProductGallery';
-import ColourSwatch from './ColourSwatch';
 import NumberPicker from './NumberPicker';
 import useReveal from '../hooks/useReveal';
 import './CurrentDrop.css';
@@ -14,14 +13,10 @@ export default function CurrentDrop() {
     ? parseInt(Object.entries(drop.numbers).find(([, v]) => v)?.[0] ?? 1)
     : 1;
 
-  const [selectedColour, setSelectedColour] = useState(
-    drop?.colourways.find(c => c.stock > 0)?.id ?? drop?.colourways[0]?.id
-  );
   const [selectedNumber, setSelectedNumber] = useState(firstAvailable);
 
   if (!drop) return null;
 
-  const activeCw = drop.colourways.find(c => c.id === selectedColour);
   const claimed = Object.values(drop.numbers).filter(v => !v).length;
   const remaining = drop.totalUnits - claimed;
   const progressPct = (remaining / drop.totalUnits) * 100;
@@ -39,7 +34,7 @@ export default function CurrentDrop() {
 
         {/* Left — image gallery */}
         <div className="current-drop__visual">
-          <ProductGallery colourway={activeCw} />
+          <ProductGallery colourway={drop.colourways[0]} />
         </div>
 
         {/* Right — product details */}
@@ -55,16 +50,6 @@ export default function CurrentDrop() {
           </p>
 
           <p className="current-drop__desc">{drop.description}</p>
-
-          {/* Colourway selector */}
-          <div className="current-drop__colourway">
-            <p className="current-drop__label">Colour</p>
-            <ColourSwatch
-              colourways={drop.colourways}
-              selected={selectedColour}
-              onSelect={setSelectedColour}
-            />
-          </div>
 
           {/* Availability */}
           <div className="current-drop__availability">
@@ -86,7 +71,7 @@ export default function CurrentDrop() {
               #{paddedNum}
             </div>
             <p className="current-drop__number-sub">
-              Select your piece from the constellation below
+              Select your piece from the grid below
             </p>
           </div>
 
@@ -106,13 +91,16 @@ export default function CurrentDrop() {
 
       </div>
 
-      {/* Full-width constellation */}
+      {/* Full-width number grid */}
       <div className="current-drop__constellation-wrap">
         <div className="current-drop__constellation-header">
           <h3 className="current-drop__constellation-title">Choose Your Number</h3>
           <p className="current-drop__constellation-sub">
             Each number is unique. Once reserved, it is yours permanently.
           </p>
+          <div className="current-drop__grid-selected" aria-live="polite">
+            {selectedNumber ? `#${paddedNum}` : '—'}
+          </div>
         </div>
         <NumberPicker
           numbers={drop.numbers}
