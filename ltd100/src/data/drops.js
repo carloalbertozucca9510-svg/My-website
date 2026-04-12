@@ -32,7 +32,7 @@ export const drops = [
     material: 'To be confirmed',
     dimensions: '24–26 cm × 13–15 cm × 4–5 cm',
     reservationType: 'engraved',
-    heroImage: null,  // Set to image path to replace campaign placeholder, e.g. '/images/drop-001-campaign.jpg'
+    heroImage: '/images/hero.jpg',
     colourways: [
       {
         id: 'onyx',
@@ -40,10 +40,10 @@ export const drops = [
         hex: '#1a1a1a',
         stock: 80,
         images: [
-          { id: 'front',    label: 'Front',     src: null },
-          { id: 'back',     label: 'Back',      src: null },
-          { id: 'detail-1', label: 'Detail 01', src: null },
-          { id: 'detail-2', label: 'Detail 02', src: null },
+          { id: 'front',    label: 'Front',     src: '/images/drop001-front.jpg' },
+          { id: 'back',     label: 'Back',      src: '/images/drop001-back.jpg' },
+          { id: 'detail-1', label: 'Detail 01', src: '/images/drop001-detail-1.jpg' },
+          { id: 'detail-2', label: 'Detail 02', src: '/images/drop001-detail-2.jpg' },
         ],
       },
     ],
