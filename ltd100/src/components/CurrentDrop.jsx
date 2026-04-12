@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { currentDrop } from '../data/drops';
 import ProductGallery from './ProductGallery';
 import NumberPicker from './NumberPicker';
+import ReservationModal from './ReservationModal';
 import useReveal from '../hooks/useReveal';
 import './CurrentDrop.css';
 
@@ -14,6 +15,8 @@ export default function CurrentDrop() {
     : 1;
 
   const [selectedNumber, setSelectedNumber] = useState(firstAvailable);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalKey, setModalKey] = useState(0);
 
   if (!drop) return null;
 
@@ -80,7 +83,10 @@ export default function CurrentDrop() {
             <p className="current-drop__price">
               {drop.currency} {drop.price.toLocaleString()}
             </p>
-            <button className="current-drop__cta">
+            <button
+              className="current-drop__cta"
+              onClick={() => { setModalKey(k => k + 1); setModalOpen(true); }}
+            >
               Reserve Piece #{paddedNum}
             </button>
             <p className="current-drop__note">
@@ -108,6 +114,15 @@ export default function CurrentDrop() {
           selectedNumber={selectedNumber}
         />
       </div>
+
+      <ReservationModal
+        key={modalKey}
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        selectedNumber={selectedNumber}
+        dropName={drop.name}
+        price={drop.price}
+      />
 
     </section>
   );
