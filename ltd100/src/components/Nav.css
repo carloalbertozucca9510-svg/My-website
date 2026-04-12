@@ -41,7 +41,7 @@
 .nav__links a {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   letter-spacing: 0.14em;
   color: var(--color-text-secondary);
   background: none;

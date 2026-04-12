@@ -18,7 +18,7 @@
 .footer__tagline {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   letter-spacing: 0.08em;
   font-style: italic;
   color: var(--color-text-secondary);
@@ -33,7 +33,7 @@
 .footer__link {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   letter-spacing: 0.1em;
   color: var(--color-text-secondary);
   transition: color 0.4s ease;

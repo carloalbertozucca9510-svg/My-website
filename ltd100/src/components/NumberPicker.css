@@ -6,8 +6,8 @@
 .number-grid__grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 10px 6px;
-  padding: var(--spacing-lg) var(--spacing-xl);
+  gap: 4px 4px;
+  padding: 16px 32px;
   max-width: 880px;
   margin: 0 auto;
 }
@@ -15,18 +15,18 @@
 .number-grid__item {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.875rem;
   letter-spacing: 0.04em;
   background: none;
   border: 1px solid transparent;
-  padding: 10px 4px;
+  padding: 6px 4px;
   text-align: center;
   line-height: 1;
   cursor: default;
   text-decoration: underline;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+  text-underline-offset: 3px;
   transition: transform 0.3s ease, text-decoration-color 0.3s ease,
               border-color 0.3s ease, color 0.3s ease;
 }
@@ -63,10 +63,10 @@
   gap: var(--spacing-md);
   justify-content: center;
   align-items: center;
-  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+  padding: 10px var(--spacing-md) 14px;
   background: var(--color-bg-dark);
   border-top: 1px solid rgba(201, 169, 110, 0.12);
-  margin-top: var(--spacing-sm);
+  margin-top: 4px;
 }
 
 .legend__item {
@@ -107,15 +107,15 @@
 
 @media (max-width: 900px) {
   .number-grid__grid {
-    padding: var(--spacing-md) var(--spacing-lg);
-    gap: 8px 4px;
+    padding: 14px var(--spacing-md);
+    gap: 4px 4px;
   }
 }
 
 @media (max-width: 560px) {
   .number-grid__grid {
     grid-template-columns: repeat(5, 1fr);
-    padding: var(--spacing-md) var(--spacing-sm);
-    gap: 8px 4px;
+    padding: 12px var(--spacing-sm);
+    gap: 4px 4px;
   }
 }

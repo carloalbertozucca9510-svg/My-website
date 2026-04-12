@@ -8,7 +8,7 @@
 .current-drop__header {
   position: relative;
   z-index: 1;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .section-eyebrow {
@@ -47,7 +47,7 @@
 .current-drop__details {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
 .current-drop__name {
@@ -62,7 +62,7 @@
 .current-drop__material {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-style: italic;
   color: var(--color-text-secondary);
   line-height: 1.5;
@@ -71,13 +71,13 @@
 .current-drop__dimensions {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.06em;
 }
 
 .current-drop__desc {
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--color-text-secondary);
   font-weight: 300;
@@ -90,7 +90,7 @@
 }
 
 .current-drop__avail-text {
-  font-size: 0.72rem;
+  font-size: 1rem;
   letter-spacing: 0.1em;
   color: var(--color-gold);
   font-family: var(--font-body);
@@ -137,7 +137,7 @@
 }
 
 .current-drop__number-sub {
-  font-size: 0.72rem;
+  font-size: 0.94rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.06em;
   font-weight: 300;
@@ -179,7 +179,7 @@
 }
 
 .current-drop__note {
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.04em;
   font-style: italic;
@@ -187,16 +187,16 @@
   font-weight: 300;
 }
 
-/* Constellation section — full width */
+/* Number grid section — full width */
 .current-drop__constellation-wrap {
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-md);
   margin-left: calc(-1 * var(--spacing-md));
   margin-right: calc(-1 * var(--spacing-md));
 }
 
 .current-drop__constellation-header {
   text-align: center;
-  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+  padding: 24px var(--spacing-md) 12px;
   background: var(--color-bg-dark);
 }
 
@@ -206,13 +206,13 @@
   font-size: clamp(28px, 3.5vw, 48px);
   letter-spacing: 0.06em;
   color: var(--color-bg);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 4px;
 }
 
 .current-drop__constellation-sub {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.82rem;
+  font-size: 0.94rem;
   letter-spacing: 0.08em;
   color: var(--color-gold);
   font-style: italic;
@@ -221,11 +221,11 @@
 .current-drop__grid-selected {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(48px, 5.5vw, 72px);
+  font-size: clamp(32px, 3.5vw, 48px);
   letter-spacing: 0.06em;
   color: var(--color-gold);
   line-height: 1;
-  margin-top: var(--spacing-md);
+  margin-top: 10px;
   min-height: 1em;
 }
 
