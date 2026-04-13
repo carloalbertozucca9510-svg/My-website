@@ -53,7 +53,7 @@
 .current-drop__name {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(20px, 2.2vw, 30px);
+  font-size: 1.6rem;
   letter-spacing: 0.04em;
   color: var(--color-text);
   line-height: 1.2;
@@ -66,6 +66,7 @@
   font-style: italic;
   color: var(--color-text-secondary);
   line-height: 1.5;
+  opacity: 0.6;
 }
 
 .current-drop__dimensions {
@@ -74,11 +75,12 @@
   font-size: 1rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.06em;
+  opacity: 0.75;
 }
 
 .current-drop__desc {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: var(--color-text-secondary);
   font-weight: 300;
 }
@@ -90,9 +92,10 @@
 }
 
 .current-drop__avail-text {
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: 0.1em;
   color: var(--color-gold);
+  opacity: 1;
   font-family: var(--font-body);
   font-weight: 300;
 }
@@ -111,10 +114,11 @@
 }
 
 .current-drop__label {
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
+  opacity: 0.6;
   margin-bottom: 4px;
   font-family: var(--font-body);
   font-weight: 300;
@@ -129,7 +133,7 @@
 .current-drop__selected-number {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(48px, 5.5vw, 72px);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   color: var(--color-gold);
   letter-spacing: 0.06em;
   line-height: 1;
@@ -137,11 +141,12 @@
 }
 
 .current-drop__number-sub {
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.06em;
   font-weight: 300;
   font-style: italic;
+  opacity: 0.6;
 }
 
 .current-drop__purchase {
@@ -155,7 +160,7 @@
 .current-drop__price {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: 2.2rem;
+  font-size: 2rem;
   letter-spacing: 0.04em;
   color: var(--color-text);
 }
@@ -167,7 +172,7 @@
   color: var(--color-text);
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   letter-spacing: 0.18em;
   border: 1px solid var(--color-gold);
   transition: background 0.4s ease, color 0.4s ease;
@@ -179,12 +184,13 @@
 }
 
 .current-drop__note {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.04em;
   font-style: italic;
   text-align: center;
   font-weight: 300;
+  opacity: 0.55;
 }
 
 /* Number grid section — full width */
@@ -203,7 +209,7 @@
 .current-drop__constellation-title {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(28px, 3.5vw, 48px);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   letter-spacing: 0.06em;
   color: var(--color-bg);
   margin-bottom: 4px;
@@ -212,16 +218,17 @@
 .current-drop__constellation-sub {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.94rem;
+  font-size: 1rem;
   letter-spacing: 0.08em;
   color: var(--color-gold);
   font-style: italic;
+  opacity: 0.7;
 }
 
 .current-drop__grid-selected {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(32px, 3.5vw, 48px);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   letter-spacing: 0.06em;
   color: var(--color-gold);
   line-height: 1;

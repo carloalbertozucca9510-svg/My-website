@@ -12,12 +12,22 @@
   background-repeat: no-repeat;
 }
 
-/* When a real campaign image is set, darken it slightly for text legibility */
+/* When a real campaign image is set — gradient layer (left darker, right open) */
+.hero--has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(26,22,18,0.7) 0%, rgba(26,22,18,0.3) 60%, rgba(26,22,18,0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Flat dark overlay on top of gradient for overall legibility */
 .hero--has-image::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(26, 22, 18, 0.55);
+  background: rgba(26, 22, 18, 0.62);
   z-index: 1;
   pointer-events: none;
 }
@@ -72,18 +82,20 @@
   letter-spacing: 0.2em;
   color: var(--color-gold);
   margin-bottom: var(--spacing-sm);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .hero__headline {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(56px, 7vw, 110px);
+  font-size: clamp(3.5rem, 6vw, 7rem);
   line-height: 1.0;
   letter-spacing: 0.02em;
   color: var(--color-bg);
   display: flex;
   flex-direction: column;
   margin-bottom: var(--spacing-sm);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .hero__headline--accent {
@@ -93,10 +105,12 @@
 .hero__subheadline {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
   line-height: 1.8;
-  color: rgba(247, 243, 238, 0.65);
+  color: rgba(247, 243, 238, 0.92);
   margin-bottom: var(--spacing-md);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .hero__status {
@@ -106,10 +120,12 @@
 .hero__status-text {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.14em;
   color: var(--color-gold);
+  opacity: 1;
   margin-bottom: var(--spacing-xs);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .hero__progress-track {
@@ -129,8 +145,8 @@
   display: inline-block;
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
   color: var(--color-bg);
   background: none;
   border: none;
@@ -138,6 +154,7 @@
   border-bottom: 1px solid rgba(247, 243, 238, 0.5);
   padding-bottom: 2px;
   transition: color 0.4s ease, border-color 0.4s ease;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .hero__cta:hover {
