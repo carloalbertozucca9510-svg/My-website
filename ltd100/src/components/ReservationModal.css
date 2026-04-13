@@ -1,12 +1,12 @@
+/* ── Overlay ── */
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 200;
   background: rgba(26, 22, 18, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-md);
   animation: overlay-in 0.35s ease;
 }
 
@@ -15,34 +15,34 @@
   to   { opacity: 1; }
 }
 
+/* ── Modal box — always centred in viewport ── */
 .modal {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 201;
   background: var(--color-bg);
-  width: 100%;
-  max-width: 560px;
+  width: 520px;
+  max-width: 92vw;
   max-height: 90vh;
-  overflow-y: auto;
-  padding: var(--spacing-lg);
+  overflow: hidden;
+  padding: 28px 32px 24px;
   animation: modal-in 0.35s ease;
-  scrollbar-width: none;
-}
-
-.modal::-webkit-scrollbar {
-  display: none;
 }
 
 @keyframes modal-in {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 12px)); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
 }
 
-/* Close button */
+/* ── Close button ── */
 .modal__close {
   position: absolute;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  width: 24px;
-  height: 24px;
+  top: 20px;
+  right: 24px;
+  width: 20px;
+  height: 20px;
   background: none;
   border: none;
   padding: 0;
@@ -73,25 +73,25 @@
   background: var(--color-gold);
 }
 
-/* Eyebrow + heading */
+/* ── Header ── */
 .modal__eyebrow {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-gold);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 4px;
 }
 
 .modal__heading {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-size: 2rem;
   letter-spacing: 0.04em;
   color: var(--color-text);
   line-height: 1.1;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .modal__heading-number {
@@ -101,32 +101,31 @@
 .modal__subline {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   letter-spacing: 0.06em;
   color: var(--color-text-secondary);
   font-style: italic;
 }
 
-/* Divider */
+/* ── Divider ── */
 .modal__divider {
   width: 100%;
   height: 1px;
   background: var(--color-border);
-  margin: var(--spacing-md) 0;
+  margin: 12px 0;
 }
 
-/* Product summary */
+/* ── Product summary ── */
 .modal__product-summary {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 8px var(--spacing-sm);
-  margin-bottom: 0;
+  gap: 5px var(--spacing-sm);
 }
 
 .modal__product-label {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
@@ -136,12 +135,12 @@
 .modal__product-value {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 0.875rem;
   letter-spacing: 0.06em;
   color: var(--color-text);
 }
 
-/* Form layout */
+/* ── Form ── */
 .modal__row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -151,14 +150,14 @@
 .modal__field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: var(--spacing-sm);
+  gap: 4px;
+  margin-bottom: 10px;
 }
 
 .modal__label {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
@@ -168,7 +167,7 @@
   text-transform: none;
   letter-spacing: 0.04em;
   font-style: italic;
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   color: var(--color-text-secondary);
   opacity: 0.7;
 }
@@ -176,13 +175,13 @@
 .modal__input {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.04em;
   color: var(--color-text);
   background: none;
   border: none;
   border-bottom: 1px solid var(--color-border);
-  padding: 8px 0;
+  padding: 6px 0;
   outline: none;
   transition: border-color 0.4s ease;
   width: 100%;
@@ -204,33 +203,32 @@
 .modal__error {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   letter-spacing: 0.04em;
   color: var(--color-burgundy);
-  margin-top: 2px;
 }
 
-/* Privacy */
+/* ── Privacy ── */
 .modal__privacy {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   letter-spacing: 0.04em;
   color: var(--color-text-secondary);
   font-style: italic;
-  line-height: 1.6;
-  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+  margin-bottom: 12px;
 }
 
-/* Submit button */
+/* ── Submit ── */
 .modal__submit {
   width: 100%;
-  padding: 18px var(--spacing-md);
+  padding: 13px var(--spacing-md);
   background: none;
   color: var(--color-text);
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.18em;
   border: 1px solid var(--color-gold);
   transition: background 0.4s ease, color 0.4s ease, opacity 0.4s ease;
@@ -253,20 +251,19 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--spacing-md) 0;
-  gap: var(--spacing-sm);
+  padding: var(--spacing-md) 0 var(--spacing-sm);
+  gap: 12px;
 }
 
 .modal__checkmark {
-  width: 48px;
-  height: 48px;
-  margin-bottom: var(--spacing-xs);
+  width: 44px;
+  height: 44px;
 }
 
 .modal__success-heading {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(20px, 3vw, 28px);
   letter-spacing: 0.04em;
   color: var(--color-text);
   line-height: 1.2;
@@ -275,11 +272,11 @@
 .modal__success-body {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.94rem;
+  font-size: 0.875rem;
   letter-spacing: 0.04em;
   color: var(--color-text-secondary);
-  line-height: 1.7;
-  max-width: 380px;
+  line-height: 1.65;
+  max-width: 360px;
 }
 
 .modal__success-number {
@@ -293,15 +290,15 @@
   flex-direction: column;
   gap: var(--spacing-xs);
   width: 100%;
-  margin-top: var(--spacing-sm);
+  margin-top: 8px;
 }
 
 .modal__btn {
   width: 100%;
-  padding: 14px var(--spacing-md);
+  padding: 13px var(--spacing-md);
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   transition: background 0.4s ease, color 0.4s ease;
@@ -329,11 +326,10 @@
   border-color: rgba(201, 169, 110, 0.4);
 }
 
-/* Mobile */
+/* ── Mobile ── */
 @media (max-width: 560px) {
   .modal {
-    padding: var(--spacing-md);
-    max-height: 95vh;
+    padding: 24px 20px 20px;
   }
 
   .modal__row {
@@ -342,7 +338,11 @@
   }
 
   .modal__close {
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
+    top: 16px;
+    right: 16px;
+  }
+
+  .modal__heading {
+    font-size: 1.75rem;
   }
 }
