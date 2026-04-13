@@ -26,7 +26,7 @@ export const drops = [
     name: 'Vistoria Evening Clutch — Drop 001',
     status: 'live',
     description: 'Structured. Minimal. Architectural. Designed to be carried once and remembered always. Each piece is produced in a single run of 100 — no reorders, no restocks.',
-    price: 7500,
+    price: 4200,
     currency: 'AED',
     totalUnits: 100,
     material: 'To be confirmed',
