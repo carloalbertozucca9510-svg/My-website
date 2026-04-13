@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { useForm, ValidationError } from '@formspree/react';
 import './ReservationModal.css';
 
@@ -53,7 +54,7 @@ export default function ReservationModal({ isOpen, onClose, selectedNumber, drop
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div
       className="modal-overlay"
       ref={overlayRef}
@@ -198,6 +199,7 @@ export default function ReservationModal({ isOpen, onClose, selectedNumber, drop
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
