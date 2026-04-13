@@ -6,7 +6,7 @@
 .number-grid__grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 4px 4px;
+  gap: 0.4rem;
   padding: 16px 32px;
   max-width: 880px;
   margin: 0 auto;
@@ -15,11 +15,11 @@
 .number-grid__item {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   letter-spacing: 0.04em;
   background: none;
   border: 1px solid transparent;
-  padding: 6px 4px;
+  padding: 0.6rem 0.5rem;
   text-align: center;
   line-height: 1;
   cursor: default;
@@ -33,7 +33,8 @@
 
 /* Available */
 .number--available {
-  color: var(--color-bg);
+  color: #E8E0D4;
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -51,8 +52,8 @@
 
 /* Reserved */
 .number--reserved {
-  color: #5C4F44;
-  opacity: 0.55;
+  color: #4A4035;
+  opacity: 0.5;
   pointer-events: none;
   cursor: default;
 }
@@ -82,12 +83,12 @@
 }
 
 .legend__square--available {
-  background: var(--color-bg);
+  background: #E8E0D4;
 }
 
 .legend__square--reserved {
-  background: #5C4F44;
-  opacity: 0.55;
+  background: #4A4035;
+  opacity: 0.5;
 }
 
 .legend__square--yours {
@@ -100,15 +101,16 @@
 .legend__label {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
   color: var(--color-text-secondary);
+  opacity: 0.7;
 }
 
 @media (max-width: 900px) {
   .number-grid__grid {
     padding: 14px var(--spacing-md);
-    gap: 4px 4px;
+    gap: 0.4rem;
   }
 }
 
@@ -116,6 +118,6 @@
   .number-grid__grid {
     grid-template-columns: repeat(5, 1fr);
     padding: 12px var(--spacing-sm);
-    gap: 4px 4px;
+    gap: 0.4rem;
   }
 }
